@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css?family=Hind:300,400&display=swap');
+
+.accordion {
+    background-color: #000; /* Match the surrounding background */
+    transform: translate3d(0, 0, 0);
+    will-change: transform, opacity; /* Optimize rendering */
+}
+
+.accordion-item {
+    border: 0;
+    background-color: #000; /* Consistent background */
+    transform: translate3d(0, 0, 0);
+    will-change: transform, opacity; /* Minimized changes */
+    box-shadow: none; /* Prevent rendering artifacts */
+}
+
+button {
+    position: relative;
+    text-align: left;
+    width: 100%;
+    padding: 1em 0;
+    color: #B28FE8;
+    font-size: 1.15rem;
+    font-weight: 400;
+    display: block;
+    background-color: #000; /* Ensure background consistency */
+    border: none;
+    outline: none;
+    will-change: auto; /* Allow browser optimization */
+    cursor: pointer;
+}
+
+button:hover,
+button:focus {
+    color: #B28FE8;
+}
+
+button:hover::after,
+button:focus::after {
+    color: #B28FE8;
+    border: none;
+}
+
+.accordion-title {
+    padding: 1em 1.5em 1em 0;
+}
+
+.icon {
+    display: inline-block;
+    position: absolute;
+    top: 18px;
+    right: 0;
+    width: 22px;
+    height: 22px;
+    border: 0; /* Fixed invalid value */
+    border-radius: 0; /* Fixed invalid value */
+}
+
+.icon::before {
+    display: block;
+    position: absolute;
+    content: '';
+    top: 9px;
+    left: 5px;
+    width: 10px;
+    height: 2px;
+    background: #B28FE8;
+}
+
+.icon::after {
+    display: block;
+    position: absolute;
+    content: '';
+    top: 5px;
+    left: 9px;
+    width: 2px;
+    height: 10px;
+    background: #B28FE8;
+}
+
+button[aria-expanded='true'] {
+    color: #B28FE8;
+}
+
+button[aria-expanded='true'] .icon::after {
+    width: 0;
+}
+
+button[aria-expanded='true'] + .accordion-content {
+    opacity: 1;
+    max-height: 9em;
+}
+
+.accordion-content {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden; /* Prevent overflow artifacts */
+    border: none;
+    will-change: auto; /* Minimized GPU usage */
+    background-color: #000; /* Consistent background */
+    color: #756C89;
+}
+
+.accordion-content p {
+    font-size: 1rem; /* Fixed spacing issue */
+    font-weight: 300;
+    margin: 2em 0;
+}
+
+/* Specific Safari Fixes */
+@supports (-webkit-touch-callout: none) {
+    .accordion-item,
+    button {
+        transform: translate3d(0, 0, 0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    .accordion-content {
+        transform: translateZ(0);
+    }
+}
