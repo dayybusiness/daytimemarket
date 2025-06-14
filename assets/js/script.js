@@ -7,7 +7,7 @@
 // Early connection optimization for Billgang domains
 (function() {
   // Add preconnect for faster domain connection
-  const domains = ['ezboost.vip'];
+  const domains = ['www.daytimemarket.xyz'];
   
   domains.forEach(domain => {
     // Add preconnect
@@ -30,21 +30,22 @@ function navbar() {
   element.classList.toggle("navbar__links--active"); 
 } 
 
-<script src="/assets/js/jquery-3.6.0.min.js.download"></script>
-<script>
 $(document).ready(function () {
   $('.shop__category').click(function () {
     if (!$(this).hasClass('active')) {
+      // Switch active tab
       $('.shop__category').removeClass('active');
       $(this).addClass('active');
 
-      $('.shop__cards').hide(); // hide all
+      // Hide all categories
+      $('.shop__cards').hide();
+
+      // Show selected category
       var index = $(this).data('category-index');
-      $('#category-' + index).fadeIn(); // show selected
+      $('#category-' + index).fadeIn();
     }
   });
 });
-</script>
 
 // Accordion functionality
 const items = document.querySelectorAll(".accordion button"); 
