@@ -31,7 +31,7 @@ function navbar() {
 } 
 
 // Shop category switching
-('.shop__category').click(function () { 
+$('.shop__category').click(function () { 
   if (!$(this).hasClass('active')) { 
     $('.shop__category').removeClass('active'); 
     $(this).addClass('active'); 
