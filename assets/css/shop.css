@@ -102,14 +102,24 @@
     /* border-bottom: 1px solid var(--primary); */
 }
 
-.product_card{
+.product_card {
     border: 1px solid var(--border_card);
     border-radius: 12px;
     padding: 10px;
     text-align: left;
     position: relative;
     margin-bottom: 30px;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* added */
+    will-change: transform; /* added for smoothness */
 }
+
+.product_card:hover {
+    transform: scale(1.03); /* hover grow */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25); /* soft glow */
+    z-index: 2; /* bring to front */
+}
+
 
 .product_card img{
     width: 100%;
