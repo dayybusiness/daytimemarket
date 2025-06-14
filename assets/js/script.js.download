@@ -30,15 +30,21 @@ function navbar() {
   element.classList.toggle("navbar__links--active"); 
 } 
 
-// Shop category switching
-$('.shop__category').click(function () { 
-  if (!$(this).hasClass('active')) { 
-    $('.shop__category').removeClass('active'); 
-    $(this).addClass('active'); 
-    $('.shop__cards').fadeOut(); 
-    $('#category-' + $(this).data('category-index')).fadeIn(); 
-  } 
-}); 
+<script src="/assets/js/jquery-3.6.0.min.js.download"></script>
+<script>
+$(document).ready(function () {
+  $('.shop__category').click(function () {
+    if (!$(this).hasClass('active')) {
+      $('.shop__category').removeClass('active');
+      $(this).addClass('active');
+
+      $('.shop__cards').hide(); // hide all
+      var index = $(this).data('category-index');
+      $('#category-' + index).fadeIn(); // show selected
+    }
+  });
+});
+</script>
 
 // Accordion functionality
 const items = document.querySelectorAll(".accordion button"); 
