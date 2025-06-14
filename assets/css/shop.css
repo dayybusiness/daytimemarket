@@ -25,7 +25,7 @@
 
 .shop__title::before{
     z-index: 1;
-    content: url('../../images/shop_blur.png');
+    content: url('/assets/img/shop_blur.png');
     position: absolute;
     top: 50%; 
     left: 50%; 
